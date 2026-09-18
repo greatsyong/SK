@@ -1,6 +1,6 @@
 # Robotics Portfolio — Sooyong Kim
 
-ROS 2, autonomous robotics, perception, localization, planning, control, manipulation, and aerial robotics projects.
+ROS 2, autonomous robotics, perception, localization, planning, control, manipulation, and autonomous systems projects.
 
 ## Projects
 
@@ -13,3 +13,8 @@ Wheel odometry and IMU fusion for mobile robot localization using an Extended Ka
 Real-time ROS 2 perception pipeline integrating object detection, multi-object tracking, and instance segmentation using a pretrained YOLO model with GPU acceleration.
 
 [View project](./02_vision_perception)
+
+### 03. LiDAR-Camera 3D Perception & Fusion
+ROS 2 multi-modal perception pipeline integrating open-vocabulary object detection, FastSAM instance masks, calibrated LiDAR-to-camera projection, depth clustering, robust object-level 3D estimation, and controlled robustness experiments in NVIDIA Isaac Sim.
+
+[View project](./03_lidar_camera_fusion)
