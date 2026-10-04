@@ -1,0 +1,24 @@
+STech Lab Scenario 01
+First-order Mission Time Estimate
+============================================================
+
+Start: (360, 136)
+Goal : (744, 840)
+
+Waffle Pi
+length_m: 43.9730014102411
+segment_count: 20
+turn_count: 19
+total_turn_angle_rad: 14.922565104551524
+total_turn_angle_deg: 855.0000000000003
+translation_time_s: 169.1269285009273
+turning_time_s: 8.19921159590743
+total_time_s: 177.32614009683473
+
+Ridgeback
+length_m: 50.91700935788389
+segment_count: 81
+direction_change_count: 80
+total_direction_change_deg: 3599.9999999999955
+translation_time_s: 46.288190325348985
+total_time_s: 46.288190325348985

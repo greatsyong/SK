@@ -1,0 +1,29 @@
+SCENARIO 03 — PATH VISUALIZATION SUMMARY
+========================================================================
+
+Representative stochastic seeds
+------------------------------------------------------------------------
+waffle_rrt              : seed=0, trial mission=300.114 s, successful median=302.154 s
+waffle_rrt_star         : seed=0, trial mission=237.166 s, successful median=237.158 s
+ridgeback_rrt           : seed=8, trial mission=222.098 s, successful median=222.098 s
+ridgeback_rrt_star      : seed=4, trial mission=203.552 s, successful median=203.552 s
+
+Recreated representative paths
+------------------------------------------------------------------------
+waffle
+  dijkstra   seed=None: raw=44.471 m, final=42.133 m, raw_ok=True, final_ok=True, max_violation=0.0 mm
+  astar      seed=None: raw=44.471 m, final=42.139 m, raw_ok=True, final_ok=True, max_violation=0.0 mm
+  rrt        seed=   0: raw=64.577 m, final=52.759 m, raw_ok=False, final_ok=False, max_violation=8.7 mm
+  rrt_star   seed=   0: raw=41.724 m, final=41.670 m, raw_ok=True, final_ok=True, max_violation=0.0 mm
+ridgeback
+  dijkstra   seed=None: raw=83.662 m, final=79.415 m, raw_ok=True, final_ok=False, max_violation=14.2 mm
+  astar      seed=None: raw=83.662 m, final=79.814 m, raw_ok=True, final_ok=False, max_violation=8.2 mm
+  rrt        seed=   8: raw=107.312 m, final=86.637 m, raw_ok=False, final_ok=False, max_violation=22.6 mm
+  rrt_star   seed=   4: raw=79.614 m, final=79.375 m, raw_ok=False, final_ok=False, max_violation=24.9 mm
+
+Waffle RRT* convergence-path reruns
+------------------------------------------------------------------------
+    5000: no solution
+   10000: raw=46.266 m, final=45.027 m, mission=256.272 s
+   20000: raw=41.959 m, final=41.749 m, mission=237.771 s
+   50000: raw=41.724 m, final=41.670 m, mission=237.166 s

@@ -1,0 +1,21 @@
+STech Lab Scenario 01 — LOS Path Refinement
+============================================================
+
+Start: (360, 136)
+Goal : (744, 840)
+
+Waffle Pi
+raw_length_m: 43.973001
+refined_length_m: 42.583511
+refined_segments: 8
+refined_turns: 7
+total_turn_deg: 218.300610
+estimated_time_s: 165.876177
+
+Ridgeback
+raw_length_m: 50.917009
+refined_length_m: 48.787086
+refined_segments: 23
+direction_changes: 22
+total_direction_change_deg: 618.779167
+translation_lower_bound_s: 44.351897

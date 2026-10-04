@@ -1,0 +1,49 @@
+turtlebot3_waffle_pi:
+  manufacturer: ROBOTIS
+  drive_type: differential
+
+  dimensions_m:
+    length: 0.281
+    width: 0.306
+    height: 0.141
+
+  limits:
+    max_linear_velocity_mps: 0.26
+    max_angular_velocity_radps: 1.82
+
+  footprint:
+    type: rectangle
+    length_m: 0.281
+    width_m: 0.306
+
+  source_basis:
+    geometry: manufacturer_specification
+    velocity: manufacturer_specification
+
+
+clearpath_ridgeback:
+  manufacturer: Clearpath Robotics
+  drive_type: mecanum
+
+  dimensions_m:
+    length: 0.960
+    width: 0.793
+    height: 0.311
+
+  limits:
+    platform_max_speed_mps: 1.10
+
+    controller:
+      max_linear_x_mps: 1.30
+      max_linear_y_mps: 1.30
+      max_angular_z_radps: 4.00
+
+  footprint:
+    type: rectangle
+    length_m: 0.960
+    width_m: 0.793
+
+  source_basis:
+    geometry: manufacturer_specification
+    platform_speed: manufacturer_specification
+    controller_limits: official_ros2_controller_configuration

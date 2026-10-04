@@ -1,0 +1,7 @@
+robot_key,robot_name,safety_margin_m,footprint_radius_m,effective_radius_m,start_free,goal_free,connected,raw_path_length_m,raw_path_points
+waffle,TurtleBot3 Waffle Pi,0.0,0.2077239755059584,0.2077239755059584,True,True,True,44.324473272817244,745
+waffle,TurtleBot3 Waffle Pi,0.025,0.2077239755059584,0.23272397550595839,True,True,True,44.47091988222397,750
+waffle,TurtleBot3 Waffle Pi,0.05,0.2077239755059584,0.2577239755059584,True,True,True,44.658787847868005,755
+ridgeback,Clearpath Ridgeback,0.0,0.6225851347406233,0.6225851347406233,True,True,True,83.28082245892129,1433
+ridgeback,Clearpath Ridgeback,0.025,0.6225851347406233,0.6475851347406233,True,True,True,83.66158364337878,1446
+ridgeback,Clearpath Ridgeback,0.05,0.6225851347406233,0.6725851347406233,False,False,False,nan,0

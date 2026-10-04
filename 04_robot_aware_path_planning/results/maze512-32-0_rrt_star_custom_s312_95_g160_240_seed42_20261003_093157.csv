@@ -1,0 +1,6 @@
+map,seed,start_x,start_y,goal_x,goal_y,iteration_budget,success,reference_length,first_solution_iteration,first_solution_cost,final_path_length,normalized_reference_ratio,tree_nodes,rewires,collision_checks,planning_time_s
+maze512-32-0,42,312,95,160,240,2000,False,1335.9402589451818,,inf,inf,inf,200,139,2432,0.13350293099938426
+maze512-32-0,42,312,95,160,240,5000,False,1335.9402589451818,,inf,inf,inf,493,397,6534,0.4711023749987362
+maze512-32-0,42,312,95,160,240,10000,False,1335.9402589451818,,inf,inf,inf,1358,1184,17748,1.9238069910061313
+maze512-32-0,42,312,95,160,240,20000,False,1335.9402589451818,,inf,inf,inf,4701,5108,74090,11.548729585003457
+maze512-32-0,42,312,95,160,240,40000,False,1335.9402589451818,,inf,inf,inf,16468,20926,504833,92.49093261200323

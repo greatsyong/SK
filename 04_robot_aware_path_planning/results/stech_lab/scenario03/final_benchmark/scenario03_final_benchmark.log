@@ -1,0 +1,67 @@
+
+================================================================================================
+SCENARIO 03 — FINAL PLANNER BENCHMARK
+================================================================================================
+Stochastic seeds       : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+RRT iteration budget   : 50000
+RRT* iteration budget  : 50000
+RRT* checkpoints       : [5000, 10000, 20000, 50000]
+
+################################################################################################
+TurtleBot3 Waffle Pi
+################################################################################################
+dijkstra success=YES time=   7.551 s raw=  44.47 m final=  42.13 m raw_ok=YES final_ok=YES viol=   0.0 mm mission=  240.08 s
+astar    success=YES time=   1.100 s raw=  44.47 m final=  42.14 m raw_ok=YES final_ok=YES viol=   0.0 mm mission=  240.16 s
+rrt      success=YES time=   1.144 s seed= 0 raw=  64.58 m final=  52.76 m raw_ok=NO  final_ok=NO  viol=   8.7 mm mission=  300.11 s
+rrt_star success=YES time= 399.623 s seed= 0 raw=  41.72 m final=  41.67 m raw_ok=YES final_ok=YES viol=   0.0 mm mission=  237.17 s
+rrt      success=YES time=   0.364 s seed= 1 raw=  66.99 m final=  55.21 m raw_ok=NO  final_ok=YES viol=   0.0 mm mission=  313.99 s
+rrt_star success=YES time= 399.019 s seed= 1 raw=  41.74 m final=  41.67 m raw_ok=YES final_ok=YES viol=   0.0 mm mission=  237.21 s
+rrt      success=YES time=   0.804 s seed= 2 raw=  73.10 m final=  57.24 m raw_ok=NO  final_ok=NO  viol=  11.3 mm mission=  326.00 s
+rrt_star success=YES time= 409.764 s seed= 2 raw=  41.66 m final=  41.63 m raw_ok=YES final_ok=YES viol=   0.0 mm mission=  236.98 s
+rrt      success=YES time=   0.868 s seed= 3 raw=  58.83 m final=  48.74 m raw_ok=NO  final_ok=YES viol=   0.0 mm mission=  277.61 s
+rrt_star success=YES time= 410.404 s seed= 3 raw=  41.71 m final=  41.64 m raw_ok=YES final_ok=YES viol=   0.0 mm mission=  237.26 s
+rrt      success=YES time=   2.327 s seed= 4 raw=  65.64 m final=  51.89 m raw_ok=NO  final_ok=NO  viol=   8.1 mm mission=  295.30 s
+rrt_star success=YES time= 388.098 s seed= 4 raw=  41.73 m final=  41.64 m raw_ok=YES final_ok=YES viol=   0.0 mm mission=  237.15 s
+rrt      success=YES time=   0.441 s seed= 5 raw=  60.93 m final=  51.57 m raw_ok=NO  final_ok=YES viol=   0.0 mm mission=  293.41 s
+rrt_star success=YES time= 417.680 s seed= 5 raw=  41.72 m final=  41.66 m raw_ok=NO  final_ok=NO  viol=   6.0 mm mission=  237.17 s
+rrt      success=YES time=   0.368 s seed= 6 raw=  65.04 m final=  54.76 m raw_ok=NO  final_ok=YES viol=   0.0 mm mission=  311.47 s
+rrt_star success=YES time= 406.863 s seed= 6 raw=  41.76 m final=  41.70 m raw_ok=YES final_ok=YES viol=   0.0 mm mission=  237.40 s
+rrt      success=YES time=   5.714 s seed= 7 raw=  66.58 m final=  53.44 m raw_ok=NO  final_ok=YES viol=   0.0 mm mission=  304.19 s
+rrt_star success=YES time= 349.005 s seed= 7 raw=  41.71 m final=  41.66 m raw_ok=YES final_ok=YES viol=   0.0 mm mission=  237.07 s
+rrt      success=YES time=   1.131 s seed= 8 raw=  73.90 m final=  55.12 m raw_ok=YES final_ok=YES viol=   0.0 mm mission=  313.54 s
+rrt_star success=YES time= 402.434 s seed= 8 raw=  41.69 m final=  41.65 m raw_ok=YES final_ok=YES viol=   0.0 mm mission=  237.13 s
+rrt      success=YES time=   1.154 s seed= 9 raw=  52.16 m final=  45.42 m raw_ok=NO  final_ok=YES viol=   0.0 mm mission=  258.49 s
+rrt_star success=YES time= 401.531 s seed= 9 raw=  41.68 m final=  41.63 m raw_ok=YES final_ok=YES viol=   0.0 mm mission=  237.05 s
+
+################################################################################################
+Clearpath Ridgeback
+################################################################################################
+dijkstra success=YES time=   3.630 s raw=  83.66 m final=  79.41 m raw_ok=YES final_ok=NO  viol=  14.2 mm mission=  203.59 s
+astar    success=YES time=   2.981 s raw=  83.66 m final=  79.81 m raw_ok=YES final_ok=NO  viol=   8.2 mm mission=  205.33 s
+rrt      success=NO  time=  98.692 s seed= 0
+rrt_star success=NO  time= 171.900 s seed= 0
+rrt      success=YES time=  26.957 s seed= 1 raw=  99.71 m final=  84.92 m raw_ok=NO  final_ok=NO  viol=  22.6 mm mission=  211.07 s
+rrt_star success=YES time= 167.352 s seed= 1 raw=  79.50 m final=  79.26 m raw_ok=NO  final_ok=NO  viol=  22.6 mm mission=  202.81 s
+rrt      success=YES time=  31.376 s seed= 2 raw= 104.27 m final=  86.69 m raw_ok=NO  final_ok=NO  viol=  22.6 mm mission=  221.26 s
+rrt_star success=YES time= 189.433 s seed= 2 raw=  81.67 m final=  81.40 m raw_ok=NO  final_ok=NO  viol=  34.4 mm mission=  210.71 s
+rrt      success=YES time=  26.348 s seed= 3 raw=  99.83 m final=  83.39 m raw_ok=NO  final_ok=NO  viol=  22.6 mm mission=  213.09 s
+rrt_star success=YES time= 205.565 s seed= 3 raw=  79.47 m final=  79.18 m raw_ok=NO  final_ok=NO  viol=  43.8 mm mission=  203.17 s
+rrt      success=YES time=  46.724 s seed= 4 raw= 122.84 m final= 101.81 m raw_ok=NO  final_ok=NO  viol=  29.1 mm mission=  282.74 s
+rrt_star success=YES time= 220.987 s seed= 4 raw=  79.61 m final=  79.37 m raw_ok=NO  final_ok=NO  viol=  24.9 mm mission=  203.55 s
+rrt      success=NO  time=  92.011 s seed= 5
+rrt_star success=NO  time= 160.158 s seed= 5
+rrt      success=YES time=  48.123 s seed= 6 raw= 105.79 m final=  88.10 m raw_ok=NO  final_ok=NO  viol=  28.4 mm mission=  227.59 s
+rrt_star success=YES time= 101.864 s seed= 6 raw=  79.80 m final=  79.41 m raw_ok=NO  final_ok=NO  viol=  23.3 mm mission=  204.93 s
+rrt      success=YES time=  18.552 s seed= 7 raw= 111.39 m final=  88.67 m raw_ok=NO  final_ok=NO  viol=  22.6 mm mission=  226.78 s
+rrt_star success=YES time= 209.389 s seed= 7 raw=  79.41 m final=  79.19 m raw_ok=NO  final_ok=NO  viol=  37.9 mm mission=  204.59 s
+rrt      success=YES time=  75.997 s seed= 8 raw= 107.31 m final=  86.64 m raw_ok=NO  final_ok=NO  viol=  22.6 mm mission=  222.10 s
+rrt_star success=YES time= 167.698 s seed= 8 raw=  79.73 m final=  79.40 m raw_ok=NO  final_ok=NO  viol=  22.6 mm mission=  202.09 s
+rrt      success=NO  time=  68.058 s seed= 9
+rrt_star success=NO  time= 116.400 s seed= 9
+
+================================================================================================
+Saved
+================================================================================================
+Trials      : results/stech_lab/scenario03/final_benchmark/scenario03_planner_trials.csv
+Convergence : results/stech_lab/scenario03/final_benchmark/scenario03_rrt_star_convergence.csv
+Summary     : results/stech_lab/scenario03/final_benchmark/scenario03_planner_summary.csv

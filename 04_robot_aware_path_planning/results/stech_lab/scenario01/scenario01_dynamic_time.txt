@@ -1,0 +1,19 @@
+STech Lab Scenario 01
+Acceleration-Limited Execution Estimate
+============================================================
+
+MODEL ASSUMPTIONS
+Waffle: stop-turn-go at LOS vertices.
+Ridgeback: rest-to-rest translation per LOS segment, no mandatory yaw maneuver.
+
+Waffle Pi
+translation_time_s: 194.265415
+turning_time_s: 5.964557
+total_time_s: 200.229972
+
+Ridgeback
+total_time_s: 67.097591
+
+Comparison
+ratio_R_over_W: 0.335103
+time_difference_s: 133.132381

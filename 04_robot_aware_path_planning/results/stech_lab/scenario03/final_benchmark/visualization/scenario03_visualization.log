@@ -1,0 +1,48 @@
+
+========================================================================================
+SCENARIO 03 — PATH VISUALIZATION
+========================================================================================
+waffle_rrt               -> seed 0 (mission 300.114 s, successful median 302.154 s)
+waffle_rrt_star          -> seed 0 (mission 237.166 s, successful median 237.158 s)
+ridgeback_rrt            -> seed 8 (mission 222.098 s, successful median 222.098 s)
+ridgeback_rrt_star       -> seed 4 (mission 203.552 s, successful median 203.552 s)
+
+Recreating representative paths — waffle
+  dijkstra   success=True
+  astar      success=True
+  rrt        seed= 0 success=True
+  rrt_star   seed= 0 success=True
+
+Recreating representative paths — ridgeback
+  dijkstra   success=True
+  astar      success=True
+  rrt        seed= 8 success=True
+  rrt_star   seed= 4 success=True
+
+Recreating Waffle RRT seed variability...
+  seed= 0 success=True
+  seed= 1 success=True
+  seed= 2 success=True
+  seed= 3 success=True
+  seed= 4 success=True
+  seed= 5 success=True
+  seed= 6 success=True
+  seed= 7 success=True
+  seed= 8 success=True
+  seed= 9 success=True
+
+Recreating Waffle RRT* convergence paths for seed 0...
+    5000: success=False
+   10000: success=True final=45.03 m mission=256.27 s
+   20000: success=True final=41.75 m mission=237.77 s
+   50000: success=True final=41.67 m mission=237.17 s
+
+========================================================================================
+Saved
+========================================================================================
+results/stech_lab/scenario03/final_benchmark/visualization/scenario03_waffle_planner_overlay.png
+results/stech_lab/scenario03/final_benchmark/visualization/scenario03_ridgeback_planner_overlay.png
+results/stech_lab/scenario03/final_benchmark/visualization/scenario03_ridgeback_violation_overlay.png
+results/stech_lab/scenario03/final_benchmark/visualization/scenario03_waffle_rrt_variability.png
+results/stech_lab/scenario03/final_benchmark/visualization/scenario03_waffle_rrtstar_convergence.png
+results/stech_lab/scenario03/final_benchmark/visualization/scenario03_visualization_summary.txt

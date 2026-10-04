@@ -1,0 +1,20 @@
+STech Lab Scenario 01
+Rectangular Footprint Validation
+============================================================
+Start: (360, 136)
+Goal : (744, 840)
+
+Waffle path: 43.973 m
+Ridgeback path: 50.917 m
+R/W ratio: 1.1579
+
+Own-path tangent-heading collisions
+Waffle: 0
+Ridgeback: 0
+
+Ridgeback applied to Waffle shortcut
+Tangent collisions: 340
+No feasible orientation (5.0 deg sampling): 285
+
+Waffle applied to Ridgeback route
+Tangent collisions: 0
