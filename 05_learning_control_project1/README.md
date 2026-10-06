@@ -19,19 +19,19 @@ This project compares four control conditions on the same nonlinear 2-DOF manipu
 
 The final task is defined in Cartesian task space:
 
-\[
+$$
 \mathbf{x}_{EE}(t) \rightarrow \mathbf{x}_d(t)
-\]
+$$
 
 where the desired end-effector position is
 
-\[
+$$
 \mathbf{x}
 =
 \begin{bmatrix}
 x & y
 \end{bmatrix}^{T}.
-\]
+$$
 
 Joint-space references generated through inverse kinematics are used only as internal quantities where required by model-based control.
 
@@ -55,7 +55,7 @@ The study is structured as a sequence of engineering questions.
 
 The overall logic is:
 
-\[
+$$
 \text{correct model}
 \rightarrow
 \text{model mismatch}
@@ -67,7 +67,7 @@ The overall logic is:
 \text{residual learning}
 \rightarrow
 \text{physical interpretation}.
-\]
+$$
 
 ---
 
@@ -92,11 +92,11 @@ A higher-DOF manipulator introduces additional geometric and implementation comp
 
 The 2-DOF system therefore provides:
 
-\[
+$$
 \boxed{
 \text{minimum complexity with meaningful nonlinear manipulator physics}
 }
-\]
+$$
 
 while remaining analytically interpretable.
 
@@ -106,7 +106,7 @@ while remaining analytically interpretable.
 
 The robot dynamics are modeled as
 
-\[
+$$
 M(q)\ddot q
 +
 C(q,\dot q)\dot q
@@ -118,7 +118,7 @@ B\dot q
 \tau
 +
 \tau_{\mathrm{ext}}.
-\]
+$$
 
 The simulation uses numerical RK4 integration.
 
@@ -138,7 +138,7 @@ The controller action is therefore held constant across ten physics integration 
 
 The model-based controller uses nonlinear dynamics compensation with feedback:
 
-\[
+$$
 \tau
 =
 M(q)
@@ -155,17 +155,17 @@ C(q,\dot q)\dot q
 g(q)
 +
 B\dot q.
-\]
+$$
 
 Controller gains:
 
-\[
+$$
 K_p=[100,\;100]
-\]
+$$
 
-\[
+$$
 K_d=[20,\;20].
-\]
+$$
 
 The exact-model CTC experiment establishes the ideal performance reference for the study.
 
@@ -179,15 +179,15 @@ To evaluate sensitivity to modeling error, only the second-link mass is changed.
 
 True plant:
 
-\[
+$$
 m_2=1.50\ \mathrm{kg}
-\]
+$$
 
 Controller model:
 
-\[
+$$
 \hat m_2=1.05\ \mathrm{kg}
-\]
+$$
 
 corresponding to a **30% underestimate**.
 
@@ -197,7 +197,7 @@ If several inertial parameters were randomized simultaneously, degradation could
 
 This experiment preserves the causal chain
 
-\[
+$$
 m_2\ \text{error}
 \rightarrow
 \text{incorrect dynamics compensation}
@@ -205,7 +205,7 @@ m_2\ \text{error}
 \text{torque deficit}
 \rightarrow
 \text{Cartesian tracking error}.
-\]
+$$
 
 ---
 
@@ -213,13 +213,13 @@ m_2\ \text{error}
 
 The model-induced torque deficit is defined as
 
-\[
+$$
 \Delta\tau_{\mathrm{model}}
 =
 \tau_{\mathrm{true\ model}}
 -
 \tau_{\mathrm{wrong\ model}}
-\]
+$$
 
 evaluated at the same robot state and reference.
 
@@ -283,7 +283,7 @@ Pure SAC directly generates actuator torque.
 
 The policy observation is
 
-\[
+$$
 [
 q_1,\;
 q_2,\;
@@ -294,7 +294,7 @@ y_d,\;
 \dot x_d,\;
 \dot y_d
 ].
-\]
+$$
 
 The policy therefore receives robot state and Cartesian reference information without direct access to analytical inverse-dynamics terms.
 
@@ -302,17 +302,17 @@ The policy therefore receives robot state and Cartesian reference information wi
 
 SAC outputs normalized actions
 
-\[
+$$
 a\in[-1,1]^2.
-\]
+$$
 
 These are mapped to the full actuator torque range:
 
-\[
+$$
 \tau_{\max}
 =
 [20,\;8]\ \mathrm{Nm}.
-\]
+$$
 
 Pure SAC therefore learns the complete actuator command.
 
@@ -328,21 +328,21 @@ Residual SAC retains the imperfect-model CTC and learns only a bounded correctiv
 
 The control law is
 
-\[
+$$
 \tau_{\mathrm{total}}
 =
 \tau_{\mathrm{CTC,wrong}}
 +
 \Delta\tau_{\mathrm{SAC}}.
-\]
+$$
 
 The residual action limits are
 
-\[
+$$
 \Delta\tau_{\max}
 =
 [5,\;2]\ \mathrm{Nm}.
-\]
+$$
 
 These limits exceed the measured analytical torque deficit while remaining substantially smaller than the full actuator range.
 
@@ -350,13 +350,13 @@ The learned policy therefore has sufficient authority to compensate for the mode
 
 The architecture represents the design principle
 
-\[
+$$
 \boxed{
 \text{known physics}
 +
 \text{learned correction}
 }
-\]
+$$
 
 rather than learning the entire control problem from scratch.
 
@@ -366,7 +366,7 @@ rather than learning the entire control problem from scratch.
 
 Tracking performance is rewarded using a bounded Cartesian tracking term:
 
-\[
+$$
 r_{\mathrm{track}}
 =
 \frac{1}
@@ -377,17 +377,17 @@ r_{\mathrm{track}}
 {\sigma_p}
 \right)^2
 }.
-\]
+$$
 
 A small normalized torque penalty is added:
 
-\[
+$$
 r
 =
 r_{\mathrm{track}}
 -
 \lambda_\tau J_\tau.
-\]
+$$
 
 The main objective remains Cartesian tracking.
 
@@ -439,7 +439,7 @@ These compare the learned residual torque directly with the analytically identif
 
 The combined evaluation therefore addresses:
 
-\[
+$$
 \boxed{
 \text{accuracy}
 +
@@ -449,7 +449,7 @@ The combined evaluation therefore addresses:
 +
 \text{physical interpretation}
 }
-\]
+$$
 
 ---
 
@@ -458,7 +458,7 @@ The combined evaluation therefore addresses:
 | Controller | EE RMSE | Max Error | Geometric Error | IoU |
 |---|---:|---:|---:|---:|
 | Exact-model CTC | **0.195 mm** | **0.278 mm** | — | — |
-| CTC with 30% \(m_2\) error | 31.116 mm | 39.161 mm | 62.230% | 53.919% |
+| CTC with 30% $m_2$ error | 31.116 mm | 39.161 mm | 62.230% | 53.919% |
 | Pure SAC | 4.662 mm | 9.930 mm | 6.230% | 93.994% |
 | Residual SAC | **1.290 mm** | **2.226 mm** | **2.353%** | **97.658%** |
 
@@ -474,15 +474,15 @@ More importantly, the learned correction also follows the analytical torque defi
 
 Residual-deficit RMSE:
 
-\[
+$$
 [0.0978,\;0.0140]\ \mathrm{Nm}
-\]
+$$
 
 Residual-deficit correlation:
 
-\[
+$$
 [0.880,\;0.996].
-\]
+$$
 
 This supports a stronger interpretation than trajectory tracking alone.
 
@@ -500,15 +500,15 @@ Residual SAC training was evaluated at multiple stages:
 
 The learning rate was reduced from
 
-\[
+$$
 3\times10^{-4}
-\]
+$$
 
 to
 
-\[
+$$
 1\times10^{-4}
-\]
+$$
 
 during the refinement experiment.
 
@@ -548,9 +548,9 @@ The current single-parameter mismatch should therefore be interpreted as a contr
 
 The simulation assumes accurate access to
 
-\[
+$$
 q,\qquad \dot q.
-\]
+$$
 
 Real systems introduce:
 
@@ -568,11 +568,11 @@ The current simulation assumes that commanded joint torque is applied directly.
 
 In hardware,
 
-\[
+$$
 \tau_{\mathrm{command}}
 \neq
 \tau_{\mathrm{actual}}
-\]
+$$
 
 in general because of:
 
@@ -597,9 +597,9 @@ The current task is free-space tracking.
 
 Real manipulators may experience
 
-\[
+$$
 \tau_{\mathrm{ext}}
-\]
+$$
 
 from:
 
@@ -633,7 +633,7 @@ It should not be interpreted as an expected hardware accuracy level.
 
 The main result of the current study is therefore the controlled relationship among:
 
-\[
+$$
 \text{model mismatch},
 \quad
 \text{torque deficit},
@@ -641,7 +641,7 @@ The main result of the current study is therefore the controlled relationship am
 \text{tracking degradation},
 \quad
 \text{learned compensation}.
-\]
+$$
 
 ---
 
