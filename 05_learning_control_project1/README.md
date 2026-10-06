@@ -19,19 +19,15 @@ This project compares four control conditions on the same nonlinear 2-DOF manipu
 
 The final task is defined in Cartesian task space:
 
-$$
+```math
 \mathbf{x}_{EE}(t) \rightarrow \mathbf{x}_d(t)
-$$
+```
 
 where the desired end-effector position is
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-x & y
-\end{bmatrix}^{T}.
-$$
+```math
+\mathbf{x} = [x,\;y]^T
+```
 
 Joint-space references generated through inverse kinematics are used only as internal quantities where required by model-based control.
 
@@ -55,19 +51,7 @@ The study is structured as a sequence of engineering questions.
 
 The overall logic is:
 
-$$
-\text{correct model}
-\rightarrow
-\text{model mismatch}
-\rightarrow
-\text{torque deficit}
-\rightarrow
-\text{model-free learning}
-\rightarrow
-\text{residual learning}
-\rightarrow
-\text{physical interpretation}.
-$$
+**correct model → model mismatch → torque deficit → model-free learning → residual learning → physical interpretation**
 
 ---
 
@@ -90,15 +74,7 @@ A 1-DOF system removes most dynamic coupling effects.
 
 A higher-DOF manipulator introduces additional geometric and implementation complexity that can obscure the physical cause of tracking error and learned correction.
 
-The 2-DOF system therefore provides:
-
-$$
-\boxed{
-\text{minimum complexity with meaningful nonlinear manipulator physics}
-}
-$$
-
-while remaining analytically interpretable.
+The 2-DOF system therefore provides the **minimum complexity required to preserve meaningful nonlinear manipulator physics while remaining analytically interpretable**.
 
 ---
 
@@ -106,19 +82,10 @@ while remaining analytically interpretable.
 
 The robot dynamics are modeled as
 
-$$
-M(q)\ddot q
-+
-C(q,\dot q)\dot q
-+
-g(q)
-+
-B\dot q
-=
-\tau
-+
-\tau_{\mathrm{ext}}.
-$$
+```math
+M(q)\ddot q + C(q,\dot q)\dot q + g(q) + B\dot q
+= \tau + \tau_{\mathrm{ext}}
+```
 
 The simulation uses numerical RK4 integration.
 
@@ -138,9 +105,8 @@ The controller action is therefore held constant across ten physics integration 
 
 The model-based controller uses nonlinear dynamics compensation with feedback:
 
-$$
-\tau
-=
+```math
+\tau =
 M(q)
 \left[
 \ddot q_d
@@ -154,18 +120,18 @@ C(q,\dot q)\dot q
 +
 g(q)
 +
-B\dot q.
-$$
+B\dot q
+```
 
 Controller gains:
 
-$$
-K_p=[100,\;100]
-$$
+```math
+K_p = [100,\;100]
+```
 
-$$
-K_d=[20,\;20].
-$$
+```math
+K_d = [20,\;20]
+```
 
 The exact-model CTC experiment establishes the ideal performance reference for the study.
 
@@ -179,33 +145,25 @@ To evaluate sensitivity to modeling error, only the second-link mass is changed.
 
 True plant:
 
-$$
-m_2=1.50\ \mathrm{kg}
-$$
+```math
+m_2 = 1.50\;\mathrm{kg}
+```
 
 Controller model:
 
-$$
-\hat m_2=1.05\ \mathrm{kg}
-$$
+```math
+\hat m_2 = 1.05\;\mathrm{kg}
+```
 
-corresponding to a **30% underestimate**.
+This corresponds to a **30% mass underestimate**.
 
 Only one parameter is perturbed intentionally.
 
 If several inertial parameters were randomized simultaneously, degradation could be observed but the physical source of the error would be harder to isolate.
 
-This experiment preserves the causal chain
+The experiment preserves a clear causal chain:
 
-$$
-m_2\ \text{error}
-\rightarrow
-\text{incorrect dynamics compensation}
-\rightarrow
-\text{torque deficit}
-\rightarrow
-\text{Cartesian tracking error}.
-$$
+**link-mass error → incorrect dynamics compensation → torque deficit → Cartesian tracking error**
 
 ---
 
@@ -213,13 +171,13 @@ $$
 
 The model-induced torque deficit is defined as
 
-$$
+```math
 \Delta\tau_{\mathrm{model}}
 =
 \tau_{\mathrm{true\ model}}
 -
 \tau_{\mathrm{wrong\ model}}
-$$
+```
 
 evaluated at the same robot state and reference.
 
@@ -259,17 +217,10 @@ The curriculum therefore controls task complexity rather than changing the funda
 
 The training scripts intentionally distinguish four operations:
 
-- **train**  
-  Fresh policy initialization.
-
-- **refine**  
-  Same task semantics, but modified optimization settings.
-
-- **transfer**  
-  Learned network weights are transferred to a new trajectory stage, while the replay buffer is reset because the task distribution changes.
-
-- **continue**  
-  Same task and reward semantics, so both the learned weights and replay buffer are reused.
+- **train** — fresh policy initialization
+- **refine** — same task semantics with modified optimization settings
+- **transfer** — learned weights are transferred to a new trajectory stage while the replay buffer is reset
+- **continue** — same task and reward semantics, so both learned weights and replay buffer are reused
 
 This distinction is important because replay data are retained only when the meaning of the experience remains unchanged.
 
@@ -283,36 +234,25 @@ Pure SAC directly generates actuator torque.
 
 The policy observation is
 
-$$
-[
-q_1,\;
-q_2,\;
-\dot q_1,\;
-\dot q_2,\;
-x_d,\;
-y_d,\;
-\dot x_d,\;
-\dot y_d
-].
-$$
+```math
+[q_1,\;q_2,\;\dot q_1,\;\dot q_2,\;x_d,\;y_d,\;\dot x_d,\;\dot y_d]
+```
 
 The policy therefore receives robot state and Cartesian reference information without direct access to analytical inverse-dynamics terms.
 
 ### Action
 
-SAC outputs normalized actions
+SAC outputs normalized actions:
 
-$$
-a\in[-1,1]^2.
-$$
+```math
+a \in [-1,1]^2
+```
 
 These are mapped to the full actuator torque range:
 
-$$
-\tau_{\max}
-=
-[20,\;8]\ \mathrm{Nm}.
-$$
+```math
+\tau_{\max} = [20,\;8]\;\mathrm{Nm}
+```
 
 Pure SAC therefore learns the complete actuator command.
 
@@ -328,35 +268,29 @@ Residual SAC retains the imperfect-model CTC and learns only a bounded correctiv
 
 The control law is
 
-$$
+```math
 \tau_{\mathrm{total}}
 =
 \tau_{\mathrm{CTC,wrong}}
 +
-\Delta\tau_{\mathrm{SAC}}.
-$$
+\Delta\tau_{\mathrm{SAC}}
+```
 
 The residual action limits are
 
-$$
+```math
 \Delta\tau_{\max}
 =
-[5,\;2]\ \mathrm{Nm}.
-$$
+[5,\;2]\;\mathrm{Nm}
+```
 
 These limits exceed the measured analytical torque deficit while remaining substantially smaller than the full actuator range.
 
-The learned policy therefore has sufficient authority to compensate for the model error without being allowed to replace the baseline controller entirely.
+The learned policy therefore has sufficient authority to compensate for model error without being allowed to replace the baseline controller entirely.
 
-The architecture represents the design principle
+The architecture follows the design principle:
 
-$$
-\boxed{
-\text{known physics}
-+
-\text{learned correction}
-}
-$$
+> **known physics + learned correction**
 
 rather than learning the entire control problem from scratch.
 
@@ -366,28 +300,27 @@ rather than learning the entire control problem from scratch.
 
 Tracking performance is rewarded using a bounded Cartesian tracking term:
 
-$$
+```math
 r_{\mathrm{track}}
 =
 \frac{1}
 {
 1+
 \left(
-\frac{\|e_{EE}\|}
-{\sigma_p}
+\frac{\|e_{EE}\|}{\sigma_p}
 \right)^2
-}.
-$$
+}
+```
 
 A small normalized torque penalty is added:
 
-$$
+```math
 r
 =
 r_{\mathrm{track}}
 -
-\lambda_\tau J_\tau.
-$$
+\lambda_\tau J_\tau
+```
 
 The main objective remains Cartesian tracking.
 
@@ -437,19 +370,9 @@ For Residual SAC:
 
 These compare the learned residual torque directly with the analytically identified model torque deficit.
 
-The combined evaluation therefore addresses:
+Together, the evaluation addresses four complementary aspects:
 
-$$
-\boxed{
-\text{accuracy}
-+
-\text{geometry}
-+
-\text{control effort}
-+
-\text{physical interpretation}
-}
-$$
+> **tracking accuracy + geometric fidelity + control effort + physical interpretation**
 
 ---
 
@@ -474,15 +397,15 @@ More importantly, the learned correction also follows the analytical torque defi
 
 Residual-deficit RMSE:
 
-$$
-[0.0978,\;0.0140]\ \mathrm{Nm}
-$$
+```math
+[0.0978,\;0.0140]\;\mathrm{Nm}
+```
 
 Residual-deficit correlation:
 
-$$
-[0.880,\;0.996].
-$$
+```math
+[0.880,\;0.996]
+```
 
 This supports a stronger interpretation than trajectory tracking alone.
 
@@ -500,15 +423,15 @@ Residual SAC training was evaluated at multiple stages:
 
 The learning rate was reduced from
 
-$$
+```math
 3\times10^{-4}
-$$
+```
 
 to
 
-$$
+```math
 1\times10^{-4}
-$$
+```
 
 during the refinement experiment.
 
@@ -546,11 +469,7 @@ The current single-parameter mismatch should therefore be interpreted as a contr
 
 ### Sensor and State-Estimation Error
 
-The simulation assumes accurate access to
-
-$$
-q,\qquad \dot q.
-$$
+The simulation assumes accurate access to $q$ and $\dot q$.
 
 Real systems introduce:
 
@@ -568,11 +487,11 @@ The current simulation assumes that commanded joint torque is applied directly.
 
 In hardware,
 
-$$
+```math
 \tau_{\mathrm{command}}
 \neq
 \tau_{\mathrm{actual}}
-$$
+```
 
 in general because of:
 
@@ -595,13 +514,7 @@ These effects become increasingly important as trajectory bandwidth increases.
 
 The current task is free-space tracking.
 
-Real manipulators may experience
-
-$$
-\tau_{\mathrm{ext}}
-$$
-
-from:
+Real manipulators may experience external torque $\tau_{\mathrm{ext}}$ from:
 
 - contact
 - payload motion
@@ -633,15 +546,7 @@ It should not be interpreted as an expected hardware accuracy level.
 
 The main result of the current study is therefore the controlled relationship among:
 
-$$
-\text{model mismatch},
-\quad
-\text{torque deficit},
-\quad
-\text{tracking degradation},
-\quad
-\text{learned compensation}.
-$$
+> **model mismatch → torque deficit → tracking degradation → learned compensation**
 
 ---
 
@@ -693,3 +598,119 @@ $$
 ├── requirements.txt
 ├── .gitignore
 └── README.md
+```
+
+---
+
+## Installation
+
+Create a virtual environment and install the required Python packages.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+---
+
+## Example Usage
+
+### Exact-model CTC baseline
+
+```bash
+python3 -m evaluation.ctc_cartesian_baseline
+```
+
+### CTC model-mismatch experiment
+
+```bash
+python3 -m evaluation.ctc_model_mismatch
+```
+
+### Analytical torque-deficit analysis
+
+```bash
+python3 -m evaluation.analyze_model_torque_deficit
+```
+
+### Train Pure SAC Stage 1
+
+```bash
+python3 -m training.train_pure_sac_stage1
+```
+
+### Transfer Pure SAC to Stage 2
+
+```bash
+python3 -m training.transfer_pure_sac_stage2
+```
+
+### Continue Stage-2 training
+
+```bash
+python3 -m training.continue_pure_sac_stage2 \
+  --source-dir results/models/pure_sac_stage2 \
+  --source-name sac_stage2_final \
+  --output-tag continued
+```
+
+### Transfer Pure SAC to Stage 3
+
+```bash
+python3 -m training.transfer_pure_sac_stage3
+```
+
+### Train Residual SAC
+
+```bash
+python3 -m training.train_residual_sac_stage3
+```
+
+### Continue Residual SAC
+
+```bash
+python3 -m training.continue_residual_sac_stage3
+```
+
+### Evaluate Residual SAC
+
+```bash
+python3 -m evaluation.evaluate_residual_sac \
+  --model <path-to-model> \
+  --tag <evaluation-tag>
+```
+
+---
+
+## Key Technologies
+
+- Python
+- NumPy
+- SciPy
+- PyTorch
+- Stable-Baselines3
+- Gymnasium
+- Matplotlib
+- Shapely
+- Soft Actor-Critic
+- Nonlinear robot dynamics
+- Computed Torque Control
+- Residual reinforcement learning
+
+---
+
+## Main Conclusion
+
+The study does not show that reinforcement learning is universally better than classical control.
+
+Instead, it demonstrates a more useful engineering relationship:
+
+- exact analytical models enable extremely accurate model-based control,
+- structured model error can severely degrade that performance,
+- model-free SAC can avoid direct dependence on an incorrect dynamics model,
+- residual SAC can recover substantially more performance by retaining known physics and learning only the missing correction.
+
+The strongest result is therefore not simply that SAC can track a trajectory.
+
+It is that a bounded learned residual can compensate for a physically identifiable model deficit while preserving the structure of a classical controller.
