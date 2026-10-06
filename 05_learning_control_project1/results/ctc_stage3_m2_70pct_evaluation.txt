@@ -1,0 +1,19 @@
+CTC Stage 3 Model-Mismatch Evaluation
+=====================================
+
+True m2 = 1.500000 kg
+Controller m2 = 1.050000 kg
+Model m2 scale = 0.700000
+
+Simulation time = 30.000000 s
+Control steps = 1500
+
+EE RMSE x = 0.0109610285 m
+EE RMSE y = 0.0291219056 m
+EE RMSE total = 0.0311163869 m
+EE max error = 0.0391614796 m
+
+Joint RMSE = [0.059164671549957144, 0.02475559407484971] rad
+Torque RMS = [9.700878412484531, 0.8573195808713727] Nm
+Torque peak = [11.05612057466442, 1.362955499765909] Nm
+Saturation fraction = [0.0, 0.0]

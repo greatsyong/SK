@@ -1,0 +1,23 @@
+Pure SAC Stage 3 continued2 Deterministic Evaluation
+=========================================
+
+Model = results/models/pure_sac_stage3_continued2/sac_stage3_continued_final
+Position scale = 0.030000 m
+
+Completed full episode = True
+Terminated = False
+Simulation time = 30.000000 s
+Control steps = 1500
+
+Total reward = 1465.2825768211
+Mean reward per step = 0.9768550512
+
+EE RMSE x = 0.0026260961 m
+EE RMSE y = 0.0038516937 m
+EE RMSE total = 0.0046617513 m
+EE max error = 0.0099297861 m
+
+Joint RMSE = [0.01020967506941566, 0.011000663515956887] rad
+Torque RMS = [9.779088053591558, 0.8111333225827088] Nm
+Torque peak = [14.174597263336182, 3.411566734313965] Nm
+Saturation fraction = [0.0, 0.0]

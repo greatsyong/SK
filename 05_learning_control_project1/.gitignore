@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Stable-Baselines3 training artifacts
+*.pkl
+*.zip
+
+# TensorBoard / logs
+runs/
+logs/
+tensorboard/
+
+# OS / temporary
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak

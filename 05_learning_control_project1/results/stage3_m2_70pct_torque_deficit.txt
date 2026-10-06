@@ -1,0 +1,16 @@
+Stage 3 Analytical Model Torque Deficit
+=======================================
+
+True m2 = 1.500000 kg
+Wrong-model m2 = 1.050000 kg
+m2 scale = 0.700000
+
+Definition:
+delta_tau_model = tau_true_model - tau_wrong_model
+
+Deficit mean = [2.3018523575872543, 0.2625963227003896] Nm
+Deficit RMS = [2.3176521964815118, 0.33834620889426914] Nm
+Deficit peak = [2.7822531130986103, 0.5458468792827633] Nm
+
+True-model torque RMS = [12.016641153154316, 1.1954167153605801] Nm
+Wrong-model torque RMS = [9.700878412484531, 0.8573195808713727] Nm

@@ -1,6 +1,6 @@
 # Robotics Portfolio — Sooyong Kim
 
-ROS 2, autonomous robotics, perception, localization, planning, control, manipulation, and autonomous systems projects.
+ROS 2, autonomous robotics, perception, localization, planning, control, manipulation, learning-based control, and autonomous systems projects.
 
 Portfolio: https://sooyongtech.dev
 
@@ -29,3 +29,9 @@ ROS 2 multi-modal perception pipeline integrating open-vocabulary object detecti
 Engineering benchmark for Dijkstra, A*, RRT, and RRT* that evaluates planning beyond shortest-path cost: robot-specific configuration spaces, footprint-driven route feasibility, temporary clutter, common path refinement, continuous clearance validation, safety-aware velocity policies, stochastic convergence, and mission-level performance for TurtleBot3 Waffle Pi and Clearpath Ridgeback.
 
 [View project](./04_robot_aware_path_planning)
+
+### 05. Model-Based and Learning-Based Control
+
+Cartesian trajectory-tracking study for a nonlinear 2-DOF manipulator comparing exact-model and mismatched Computed Torque Control, model-free Soft Actor-Critic, and Residual SAC. The project connects structured model mismatch to analytical torque deficit and evaluates whether reinforcement learning can recover the missing dynamics while preserving model-based control structure.
+
+[View project](./05_learning_control_project1)

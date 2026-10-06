@@ -1,0 +1,53 @@
+Residual SAC Stage 3 Deterministic Evaluation
+============================================================
+
+Experiment tag = continued
+Model = results/models/residual_sac_stage3_continued/residual_sac_stage3_continued_final
+
+Control architecture:
+tau_total = tau_CTC_wrong + delta_tau_SAC
+
+True m2 [kg] = 1.500000
+CTC model m2 [kg] = 1.050000
+Model m2 scale = 0.700000
+Residual limits [Nm] = [5.0, 2.0]
+
+Completed full episode = True
+Terminated = False
+Simulation time [s] = 30.000000
+Control steps = 1500
+
+Total reward = 1497.0486864866
+Mean reward per step = 0.9980324577
+
+EE RMSE x [m] = 0.0007292184
+EE RMSE y [m] = 0.0010641172
+EE RMSE total [m] = 0.0012900019
+EE max error [m] = 0.0022260544
+
+Joint RMSE [rad] = [0.002614790749520989, 0.002341372262630062]
+
+Total torque RMS [Nm] = [9.773230968877147, 0.735428891652359]
+Total torque peak [Nm] = [10.840308341033182, 1.269172582671007]
+Saturation fraction = [0.0, 0.0]
+
+Residual torque mean [Nm] = [1.8613217016061148, 0.16530426740646362]
+Residual torque RMS [Nm] = [1.868511577956164, 0.22284941635301503]
+Residual torque peak [Nm] = [2.2165274620056152, 0.4301419258117676]
+
+Model deficit mean [Nm] = [1.8113619110953407, 0.16601957044957438]
+Model deficit RMS [Nm] = [1.8199331954247189, 0.22152757783817353]
+Model deficit peak [Nm] = [2.084437640549668, 0.3643455388740412]
+
+Residual-deficit RMSE [Nm] = [0.09780579509048251, 0.013981324272653119]
+Residual-deficit correlation = [0.880417982875718, 0.9957296323263728]
+
+Geometric metrics - last complete cycle
+-----------------------------------------
+Reference area [m^2] = 0.01884906
+Actual area [m^2] = 0.01859197
+Absolute area bias [m^2] = 0.00025709
+Area bias / reference [%] = 1.364
+Symmetric-difference area [m^2] = 0.00044358
+Geometric area error [%] = 2.353
+IoU [%] = 97.658

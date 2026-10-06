@@ -1,0 +1,49 @@
+CTC Cartesian Tracking Baseline
+================================
+
+Controller:
+- Computed Torque Control
+- Nominal model = true plant model
+- Kp = [100, 100]
+- Kd = [20, 20]
+- Physical torque limits applied
+
+Stage 1
+-------
+Period = 20.000000 s
+EE RMSE x = 0.0000285636 m
+EE RMSE y = 0.0000100644 m
+EE RMSE total = 0.0000302849 m
+EE max error = 0.0000424942 m
+Joint RMSE q1 = 0.0000152582 rad
+Joint RMSE q2 = 0.0000983588 rad
+Torque RMS = [9.7389156850, 0.5771076118] Nm
+Torque peak = [10.0547408789, 0.7640830234] Nm
+Saturation fraction = [0.000000, 0.000000]
+
+Stage 2
+-------
+Period = 15.000000 s
+EE RMSE x = 0.0000424652 m
+EE RMSE y = 0.0000144424 m
+EE RMSE total = 0.0000448539 m
+EE max error = 0.0000654644 m
+Joint RMSE q1 = 0.0000316953 rad
+Joint RMSE q2 = 0.0001522726 rad
+Torque RMS = [9.7255096232, 0.5870791561] Nm
+Torque peak = [10.1059328765, 0.7868691434] Nm
+Saturation fraction = [0.000000, 0.000000]
+
+Stage 3
+-------
+Period = 10.000000 s
+EE RMSE x = 0.0001829486 m
+EE RMSE y = 0.0000675596 m
+EE RMSE total = 0.0001950243 m
+EE max error = 0.0002781870 m
+Joint RMSE q1 = 0.0000706469 rad
+Joint RMSE q2 = 0.0006226613 rad
+Torque RMS = [9.7679383427, 0.7361288009] Nm
+Torque peak = [10.7087500587, 1.2050172195] Nm
+Saturation fraction = [0.000000, 0.000000]
+
